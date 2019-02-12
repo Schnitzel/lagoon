@@ -62,7 +62,7 @@ const PageDeployments = withRouter(props => {
                 />
                 {!props.router.query.build && (
                   <Deployments
-                    projectName={environment.openshiftProjectName}
+                    pageEnvironment={environment}
                   />
                 )}
                 {props.router.query.build && (

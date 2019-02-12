@@ -4,6 +4,7 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import moment from 'moment';
+import DeployLatest from '../DeployLatest';
 import { bp, color } from '../../variables';
 
 const query = gql`
@@ -48,8 +49,9 @@ const getDuration = deployment => {
   return duration;
 };
 
-const Deployments = ({ projectName }) => (
+const Deployments = ({ pageEnvironment }) => (
   <div className="content">
+    <DeployLatest pageEnvironment={pageEnvironment} />
     <div className="header">
       <label>Name</label>
       <label>Created</label>
@@ -57,7 +59,7 @@ const Deployments = ({ projectName }) => (
       <label>Duration</label>
     </div>
     <div className="data-table">
-      <Query query={query} variables={{ name: projectName }}>
+      <Query query={query} variables={{ name: pageEnvironment.openshiftProjectName }}>
         {({ loading, error, data, subscribeToMore }) => {
           if (loading) {
             return <div className="data-none">Loading...</div>;
@@ -123,7 +125,7 @@ const Deployments = ({ projectName }) => (
                 href={{
                   pathname: '/deployments',
                   query: {
-                    name: projectName,
+                    name: pageEnvironment.openshiftProjectName,
                     build: deployment.name
                   }
                 }}
