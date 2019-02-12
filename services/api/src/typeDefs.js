@@ -300,6 +300,10 @@ const typeDefs = gql`
     """
     deployHeadRef: String
     """
+    The title of the last deployment (PR title)
+    """
+    deployTitle: String
+    """
     Which Environment Type this environment is, can be \`production\`, \`development\`
     """
     environmentType: String
@@ -530,6 +534,7 @@ const typeDefs = gql`
     deployType: DeployType!
     deployBaseRef: String!
     deployHeadRef: String
+    deployTitle: String
     environmentType: EnvType!
     openshiftProjectName: String!
   }
@@ -833,6 +838,7 @@ const typeDefs = gql`
     deployType: DeployType
     deployBaseRef: String
     deployHeadRef: String
+    deployTitle: String
     environmentType: EnvType
     openshiftProjectName: String
     route: String
