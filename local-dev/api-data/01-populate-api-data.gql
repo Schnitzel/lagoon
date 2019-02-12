@@ -268,6 +268,7 @@ mutation PopulateApi {
       name: "master"
       project: 3
       deployType: BRANCH
+      deployBaseRef: "master"
       environmentType: PRODUCTION
       openshiftProjectName: "ci-local"
     }
@@ -462,6 +463,7 @@ mutation PopulateApi {
       name: "lagoon-api-variables"
       project: 12
       deployType: BRANCH
+      deployBaseRef: "lagoon-api-variables"
       environmentType: PRODUCTION
       openshiftProjectName: "ci-features-lagoon-api-variables"
     }
@@ -742,6 +744,7 @@ mutation PopulateApi {
       name: "Master"
       project: 18
       deployType: BRANCH
+      deployBaseRef: "Master"
       environmentType: PRODUCTION
       openshiftProjectName: "high-cotton-master"
     }
@@ -921,6 +924,7 @@ mutation PopulateApi {
       name: "Staging"
       project: 18
       deployType: BRANCH
+      deployBaseRef: "Staging"
       environmentType: DEVELOPMENT
       openshiftProjectName: "high-cotton-staging"
     }
@@ -944,6 +948,7 @@ mutation PopulateApi {
       name: "Development"
       project: 18
       deployType: BRANCH
+      deployBaseRef: "Development"
       environmentType: DEVELOPMENT
       openshiftProjectName: "high-cotton-development"
     }
@@ -967,6 +972,9 @@ mutation PopulateApi {
       name: "PR-175"
       project: 18
       deployType: PULLREQUEST
+      deployBaseRef: "target"
+      deployHeadRef: "source"
+      deployTitle: "PR-175"
       environmentType: DEVELOPMENT
       openshiftProjectName: "high-cotton-pr-175"
     }
@@ -1005,6 +1013,7 @@ mutation PopulateApi {
       name: "master"
       project: 19
       deployType: BRANCH
+      deployBaseRef: "master"
       environmentType: PRODUCTION
       openshiftProjectName: "ci-env-limit"
     }
@@ -1018,6 +1027,7 @@ mutation PopulateApi {
       name: "develop"
       project: 19
       deployType: BRANCH
+      deployBaseRef: "develop"
       environmentType: DEVELOPMENT
       openshiftProjectName: "ci-env-limit"
     }
@@ -1031,6 +1041,7 @@ mutation PopulateApi {
       name: "stage"
       project: 19
       deployType: BRANCH
+      deployBaseRef: "stage"
       environmentType: DEVELOPMENT
       openshiftProjectName: "ci-env-limit"
     }
