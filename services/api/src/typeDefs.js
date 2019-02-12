@@ -477,6 +477,19 @@ const typeDefs = gql`
     allEnvironments(createdAfter: String, type: EnvType): [Environment]
   }
 
+  # Must provide id OR name
+  input ProjectInput {
+    id: Int
+    name: String
+  }
+
+  # Must provide id OR name and project
+  input EnvironmentInput {
+    id: Int
+    name: String
+    project: ProjectInput
+  }
+
   input AddSshKeyInput {
     id: Int
     name: String!
@@ -859,6 +872,10 @@ const typeDefs = gql`
     id: Int!
   }
 
+  input DeployEnvironmentLatestInput {
+    environment: EnvironmentInput!
+  }
+
   type Mutation {
     addCustomer(input: AddCustomerInput!): Customer
     updateCustomer(input: UpdateCustomerInput!): Customer
@@ -955,6 +972,7 @@ const typeDefs = gql`
     setEnvironmentServices(input: SetEnvironmentServicesInput!): [EnvironmentService]
     uploadFilesForTask(input: UploadFilesForTaskInput!): Task
     deleteFilesForTask(input: DeleteFilesForTaskInput!): String
+    deployEnvironmentLatest(input: DeployEnvironmentLatestInput!): String
   }
 
   type Subscription {
